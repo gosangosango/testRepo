@@ -1,0 +1,5 @@
+#Dockerfile.miracom-mes-service-java
+FROM java:8
+ADD build/libs/miracom-mes-service-package-0.0.1-SNAPSHOT.jar miracom-mes-service-package-0.0.1-SNAPSHOT.jar
+CMD java -jar miracom-mes-service-package-0.0.1-SNAPSHOT.jar
+EXPOSE 18600

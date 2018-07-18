@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: miracom-mes-service
+  cloud:
+    config:
+      enabled: false  
+  datasource:
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 3
+    url: jdbc:edb://192.168.20.33:5444/mes
+    username: enterprisedb
+    password: miracom
+    driverClassName: com.edb.Driver
+ 
+logging:
+  pattern:
+    console: |
+      %date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] - %message - %logger{5}:%method:%line
+  level:
+    root: INFO
+    kr.co.miracom.mes: INFO
+ 
+miracom:
+  msa:
+    apiGatewayUrl: http://192.168.20.33:18310
+  dml:
+    domain: public
+    columnAliasRuleForMapKey: camelcase
+    maxSqlByPathCacheSize: 0
+    defaultLockTimeout: 1200
+    queryMapper: kr.co.miracom.dbist.dml.jdbc.QueryMapperPostgresql
+  jdbcOperations:
+    fetchSize: 100
+    maxRows: 10001
+  namedParameterJdbcOperations:
+    cacheLimit: 200
+  sqlAspect:
+    enabled: true
+    prettyPrint: true
+    combinedPrint: true
+    includeElapsedTime: true
+  transactionManager:
+    defaultTimeout: 1200
+ 
+management:
+  security:
+    enabled: false
+ 
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://192.168.20.33:18320/eureka/
+      
+server:
+  port: 18600

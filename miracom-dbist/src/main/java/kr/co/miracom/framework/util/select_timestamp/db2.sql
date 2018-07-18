@@ -1,0 +1,1 @@
+select current timestamp from sysibm.sysdummy1

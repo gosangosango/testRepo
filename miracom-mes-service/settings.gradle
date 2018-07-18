@@ -1,0 +1,4 @@
+rootProject.name = 'miracom-mes-service'
+
+include 'miracom-dbist'
+project(':miracom-dbist').projectDir = new File('../miracom-dbist')
